@@ -1,41 +1,43 @@
 import './App.css';
-import First_Step from './pages/First_Step';
-import Second_Step from './pages/Second_Step';
-import Third_Step from './pages/Third_Step';
-import { Step, Stepper, StepLabel } from '@mui/material';
+import TopNavbar from './Layout/TopNavbar/TopNavbar';
+import HomePage from './Pages/HomePage/HomePage';
+import  Img1  from './Utility/Images/img1.jpg'
+import  Img2  from './Utility/Images/img2.jpg'
+import  Img3  from './Utility/Images/img3.png'
+
 
 function App() {
-  function showStep(step) {
-    switch (step) {
-      case 1:
-        return<First_Step/>
-      case 2:
-      return <Second_Step />
-      case 3:
-        return <Third_Step/>
-    }
-  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <h3 style={{ color: 'red', textDecoration: 'underline' }}>React MultiStep Form</h3>
-        <div className="center-stepper">
-          <Stepper style={{ width: '18%' }} activeStep='1' orientation='horizontal'>
-            <Step>
-              <StepLabel />
-            </Step>
-            <Step>
-              <StepLabel />
-            </Step>
-            <Step>
-              <StepLabel />
-            </Step>
-          </Stepper>
+      <TopNavbar />
+      <HomePage />
+      <>
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+          <div className="carousel-inner">
+            <div className="carousel-item active">
+              <img src={Img1} className="d-block " alt="..." width='600px' height="600px" />
+            </div>
+            <div className="carousel-item">
+              <img src={Img2} className="d-block " alt="..." width='600px' height="600px" />
+            </div>
+            <div className="carousel-item">
+              <img src={Img3} className="d-block" alt="..." width='100px' height="600px" />
+            </div>
+          </div>
+          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Next</span>
+          </button>
         </div>
-       {showStep(2)}
-      </header>
+      </>
     </div>
   );
 }
 
 export default App;
+
